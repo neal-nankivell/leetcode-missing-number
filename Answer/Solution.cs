@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Answer
 {
@@ -23,7 +24,9 @@ namespace Answer
     {
         public int MissingNumber(int[] nums)
         {
-            throw new NotImplementedException();
+            return Enumerable.Range(0, nums.Max() + 1)
+                .Except(nums)
+                .First();
         }
     }
 }
