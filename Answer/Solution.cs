@@ -24,10 +24,14 @@ namespace Answer
     {
         public int MissingNumber(int[] nums)
         {
-            int maxValue = nums.Length > 0 ? nums.Max() : 0;
-            return Enumerable.Range(0, maxValue + 2)
-                .Except(nums)
-                .First();
+            var result = nums.Length;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                result ^= nums[i] ^ i;
+            }
+
+            return result;
         }
     }
 }
