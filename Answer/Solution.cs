@@ -24,7 +24,8 @@ namespace Answer
     {
         public int MissingNumber(int[] nums)
         {
-            return Enumerable.Range(0, nums.Max() + 1)
+            int maxValue = nums.Length > 0 ? nums.Max() : 0;
+            return Enumerable.Range(0, maxValue + 2)
                 .Except(nums)
                 .First();
         }
